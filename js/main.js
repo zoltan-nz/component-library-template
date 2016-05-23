@@ -3,10 +3,8 @@ requirejs.config({
 
   paths: {
     'jquery': 'vendor/jquery',
-
-    'app': 'app/app'
+    'lodash': 'vendor/lodash',
   }
-  
 });
 
-require(['app'])();
+require(['app/app'])();
