@@ -1,18 +1,19 @@
 define('analytics/analytics', ['analytics/adapters/log', 'analytics/services/attacher'], function(LogAdapter, AttacherService) {
 
   /**
-   *
-   * @param {Object} opt Optional parameters
-   * @param opt.adapter Used adapter
-   * @param opt.travels Travel data
+   * @namespace Analytics
+   * @class Analytics
+   * @param {Object} options Optional parameters
+   * @param {Analytics.Adapter} options.adapter The Analytics Adapter (ex. GoogleAnalytics)
+   * @param {array} options.stages Array of Stage data objects
    * @returns {{init: init}}
    * @constructor
    */
-  function Analytics(opt) {
-    var opt = opt || {};
+  function Analytics(options) {
+    var opt = options || {};
 
     var adapter = opt.adapter || LogAdapter;
-    var travels = opt.travels || {};
+    var stages = opt.stages || {};
     
     var attacherService = AttacherService();
     
@@ -20,9 +21,11 @@ define('analytics/analytics', ['analytics/adapters/log', 'analytics/services/att
 
       /**
        * Analytics initialization
+       *
+       * @method 
        */
       init: function() {
-        attacherService.attach(travels);
+        attacherService.attach(stages[1]);
       }
 
     };

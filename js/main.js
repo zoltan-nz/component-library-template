@@ -3,7 +3,7 @@ requirejs.config({
 
   paths: {
     'jquery': 'vendor/jquery',
-    'lodash': 'vendor/lodash',
+    'lodash': 'vendor/lodash'
   }
 });
 

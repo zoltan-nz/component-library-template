@@ -1,19 +1,18 @@
-define('analytics/models/travel', ['analytics/data/travels', 'lodash'], function(travelsData, _) {
+define('analytics/models/stage-type', function() {
 
   /**
-   * A Travel model
+   * A Type model
    *
    * @memberOf Analytics:Models
-   * @class Travel
    * @param {Object} dataObject
    * @param {Number} dataObject.id
    * @param {String} dataObject.name
    * @returns {{getId: getId, getName: getName}}
    * @constructor
    */
-  function Travel(dataObject) {
+  function StageType(dataObject) {
     var obj = dataObject || {};
-    
+
     var id = obj.id || 0;
     var name = obj.name || 'Empty';
 
@@ -28,13 +27,5 @@ define('analytics/models/travel', ['analytics/data/travels', 'lodash'], function
     }
   }
 
-  Travel.findAll = function() {
-    return travelsData;
-  };
-  
-  Travel.findById = function(id) {
-    return Travel(_.find(travelsData, {id: id}));
-  };
-    
-  return Travel;
+  return StageType;
 });

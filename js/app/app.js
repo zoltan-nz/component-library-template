@@ -1,6 +1,6 @@
 define('app/app',
-  ['jquery', 'analytics/analytics', 'analytics/services/attacher', 'analytics/data/travels/form-usage'],
-  function($, Analytics, AttacherService, formUsageData) {
+  ['jquery', 'analytics/analytics', 'analytics/services/attacher', 'analytics/data/stages'],
+  function($, Analytics, AttacherService, stagesData) {
 
   $('#enterNameForm').on('submit', function(e) {
     console.warn($('form').serialize());
@@ -18,7 +18,7 @@ define('app/app',
     }
   });
 
-  var analytics = Analytics({travels: formUsageData });
+  var analytics = Analytics({stages: stagesData});
   analytics.init();
 
 });
