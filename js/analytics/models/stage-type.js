@@ -16,6 +16,10 @@ define('analytics/models/stage-type', function() {
     var id = obj.id || 0;
     var name = obj.name || 'Empty';
 
+    this.findById = function(id) {
+      return this(_.find(stageTypeData, {id: id}));
+    };
+
     return {
       getId: function() {
         return id;

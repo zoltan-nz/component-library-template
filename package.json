@@ -1,0 +1,28 @@
+{
+  "name": "analytics-app",
+  "version": "1.0.0",
+  "description": "Just analytics",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^2.11.1",
+    "eslint-config-airbnb": "",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-jsx-a11y": "",
+    "eslint-plugin-react": ""
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoltan-nz/analytics-app.git"
+  },
+  "author": "Zoltan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zoltan-nz/analytics-app/issues"
+  },
+  "homepage": "https://github.com/zoltan-nz/analytics-app#readme"
+}

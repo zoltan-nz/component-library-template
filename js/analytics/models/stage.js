@@ -5,9 +5,10 @@ define('analytics/models/stage', ['analytics/models/travel'], function(Travel) {
    * @name Stage
    * @memberOf module:Analytics:Models
    * @param {Object} dataObject
-   * @param {Number} dataObject.id
-   * @param {String} dataObject.name
-   * 
+   * @param {Number} dataObject.id - Unique id in data model
+   * @param {String} dataObject.selector - The selector where the event will be attached
+   * @param {String} dataObject.when - Valid DOM event which will trigger the adapter
+   * @param {Number} dataObject.stageTypeId - Type id (Begin, Interim, Finished)
    * @constructor
    */
   return function(stageData) {
@@ -16,7 +17,7 @@ define('analytics/models/stage', ['analytics/models/travel'], function(Travel) {
     var id = obj.id || 0;
     var selector = obj.selector || 'input';
     var when = obj.when || 'onchange';
-    var travelId = obj.travel_id|| 0;
+    var travelId = obj.travel_id || 0;
     var stageTypeId = obj.stage_type_id || 0;
 
     var travel = Travel.findById(travelId);
@@ -36,6 +37,10 @@ define('analytics/models/stage', ['analytics/models/travel'], function(Travel) {
       
       getTravel: function() {
         return travel;
+      },
+      
+      getStage: function() {
+        return StageType.findById(stageTypeId);
       }
     }
   };
