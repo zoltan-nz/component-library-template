@@ -1,0 +1,19 @@
+{
+  "name": "analytics-app",
+  "description": "Just analytics",
+  "authors": [
+    "Zoltan"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/zoltan-nz/analytics-app",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^1.12.4"
+  }
+}

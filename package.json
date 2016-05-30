@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "broccoli": "^0.16.9",
     "eslint": "^2.11.1",
     "eslint-config-airbnb": "",
     "eslint-config-airbnb-base": "^3.0.1",

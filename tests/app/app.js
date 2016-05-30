@@ -1,5 +1,5 @@
 define('app/app',
-  ['jquery', 'analytics/analytics', 'analytics/services/attacher', 'analytics/data/stages'],
+  ['jquery', '../../lib/analytics/analytics', '../../lib/analytics/services/attacher', '../../lib/analytics/data/stages'],
   function($, Analytics, AttacherService, stagesData) {
 
   $('#enterNameForm').on('submit', function(e) {
