@@ -17,6 +17,9 @@ Project setup:
 * Setup .editorconfig
 * Setup .watchmanconfig
 * Setup broccoli, Brocfile.js
+
+Use broccoli-babel-transpiler v5.4.5 for babel v5.
+
 * Setup qunit and testem
 
 Testing:

@@ -5,13 +5,15 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-    "broccoli": "^0.16.9",
+    "babel": "^5.8.38",
+    "broccoli": "^1.0.0-beta.7",
+    "broccoli-babel-transpiler": "^5.4.5",
+    "broccoli-concat": "^2.2.0",
+    "broccoli-funnel": "^1.0.1",
+    "broccoli-merge-trees": "^1.1.1",
     "eslint": "^2.11.1",
-    "eslint-config-airbnb": "",
-    "eslint-config-airbnb-base": "^3.0.1",
-    "eslint-plugin-import": "^1.8.1",
-    "eslint-plugin-jsx-a11y": "",
-    "eslint-plugin-react": ""
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-react": "^5.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
