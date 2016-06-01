@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import stageTypeData from 'data/types';
 
-export default class {
+export default class StageType {
 
   constructor(dataObject) {
 

@@ -1,49 +1,65 @@
 const babel = require('broccoli-babel-transpiler');
 const funnel = require('broccoli-funnel');
 const concat = require('broccoli-concat');
-
-// // const funnel = require('broccoli-funnel');
-// // const concat = require('broccoli-concat');
-// // const mergeTrees = require('broccoli-merge-trees');
-// const babel = require('broccoli-babel-transpiler');
-// const pkg = require('./package.json');
-//
-// const sourceRoot = 'src';
-// const moduleId = 'Analytics';
-//
-const options = {
-  modules: 'umd',
-  moduleIds: true,
-};
-//
-// const lib = babel(sourceRoot, options);
-//
-// module.exports = lib;
+const merge = require('broccoli-merge-trees');
+const liveReload = require('broccoli-inject-livereload');
+const serveLiveReload = require('broccoli-live-reload');
+const log = require('broccoli-stew').log;
 
 
+let publicFiles = liveReload('public');
 
-// Babel transpiler
-
-// filter trees (subsets of files)
-
-// concatenate trees
-
-// merge trees
-var mergeTrees = require('broccoli-merge-trees');
-
-// Transpile the source files
-var appJs = babel('src', options);
-
-// Concatenate all the JS files into a single file
-appJs = concat(appJs, {
-  // we specify a concatenation order
-  inputFiles: ['**/*.js'],
-  outputFile: '/js/my-app.js'
+publicFiles = funnel(publicFiles, {
+  files: ['index.html']
 });
 
-// Grab the index file
-var index = funnel('src', {files: ['index.html']});
+// serveLiveReload(publicFiles, {path: 'public', include: ['*.html']});
 
-// Grab all our trees and
-// export them as a single and final tree
-module.exports = mergeTrees([index, appJs]);
+const vendorFiles = [
+  'jquery.js',
+  'lodash.js'
+];
+
+let vendorScripts = merge([
+  'bower_components/jquery/dist',
+  'bower_components/lodash/'
+], { overwrite: true });
+
+
+vendorScripts = funnel(vendorScripts, {
+  files: vendorFiles,
+  annotation: 'Funnel: vendorFiles'
+});
+
+vendorScripts = concat(vendorScripts, {
+  inputFiles: vendorFiles,
+  outputFile: '/vendor.js'
+});
+
+const babelOptions = {
+  modules: 'umd',
+  moduleIds: true
+};
+
+let libScript = babel('src', babelOptions);
+
+libScript = concat(libScript, {
+  inputFiles: [
+    '**/*.js'
+  ],
+  outputFile: '/analytics.js'
+});
+
+// serveLiveReload(publicFiles, serveLiveReload({
+//   path: './',
+//   include: [
+//     '**/*.js',
+//     '**/*.html'
+//   ]
+// }));
+
+module.exports = merge([
+  publicFiles,
+  vendorScripts,
+  libScript
+]);

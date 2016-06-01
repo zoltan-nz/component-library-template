@@ -1,4 +1,6 @@
-import when from 'models/when';
+import When from 'models/when';
+
+const when = new When();
 
 export default [
   // Page Visit, travel_id: 1
