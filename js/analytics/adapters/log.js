@@ -12,6 +12,10 @@
   }
 }(function() {
 
+  /**
+   *
+   * @constructor
+   */
   function Log() {
     console.log('Log Adapter initialized');
   }

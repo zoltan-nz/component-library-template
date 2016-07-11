@@ -1,4 +1,8 @@
-(function(factory) {
+(/**
+ * @exports App.Analytics.Models.Travel
+ */
+function(factory) {
+
   if (typeof define === 'function' && define.amd) {
     define(['jquery'], factory);
   } else {
@@ -11,7 +15,10 @@
       }
     );
   }
-}(function() {
+}/**
+ * @exports App.Analytics.Models.Travel
+ */
+(function() {
 
   function Travel(name) {
     console.log('Travel is called');
@@ -30,5 +37,8 @@
     }
   }
 
+  /**
+   * @export App.Analytics.Models.Travel
+   */
   return Travel;
 }));

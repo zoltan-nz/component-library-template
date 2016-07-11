@@ -32,3 +32,12 @@ Testing:
 Broccoli-stew
 https://dockyard.com/blog/2015/02/02/debugging-a-broccoli-tree
 
+TODO:
+
+Create Stage model:
+{selector: '', name: '', type: 'SIMPLE'}
+- getSelector
+- getName
+- getType
+
+Create an ErrorStage, which is inherited Stage, but type is 'ERROR'

@@ -1,27 +1,35 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['jquery'], factory);
+    define(['jquery', '../models/stage'], factory);
   } else {
     $.extend(true, App, {
         Analytics: {
           Services: {
-            Attacher: factory(jQuery)
+            Attacher: factory(jQuery, App.Analytics.Models.Stage)
           }
         }
       }
     );
   }
-}(function($) {
+}(function($, Stage) {
 
   function Attacher(travels, senderService) {
     console.log('Attacher service called', travels, senderService);
 
     return {
       attachAll: function() {
-        $.each(travels.stages, function(index, stage) {
-          console.log(stage);
-          $(stage.selector).on(stage.when, {name: travels.name, stage: stage}, senderService.send);
+
+        $.each(travels.stages, function(index, stageObject) {
+          console.log(stageObject);
+
+          var stageInstance = Stage(stageObject);
+
+          stageInstance.getElement().on(
+            stageInstance.getWhen(),
+            stageInstance.callbackData(),
+            senderService.send);
         })
+
       }
     }
   }

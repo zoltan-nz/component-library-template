@@ -1,3 +1,6 @@
+/**
+ * @exports App.Analytics.Adapters.Server
+ */
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     define([''], factory);
@@ -12,10 +15,19 @@
   }
 }(function() {
 
+  /**
+   *
+   * @constructor
+   */
   function Server() {
     console.log('Server Adapter initialized');
   }
 
+  /**
+   *
+   * @param message
+   * @static
+   */
   Server.send = function(message) {
     console.log('Sent to server:', message);
   };

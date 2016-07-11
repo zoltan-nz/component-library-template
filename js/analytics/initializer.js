@@ -9,7 +9,8 @@
       }
     );
   }
-}(function(AttacherService, SenderService) {
+}(function(Attacher, SenderService) {
+
   function Initializer(options) {
 
     console.log('Initializer called', options);
@@ -20,7 +21,7 @@
     var travels = options.travels;
 
     var senderService = SenderService(adapter1);
-    var attacherService = AttacherService(travels, senderService);
+    var attacherService = Attacher(travels, senderService);
 
     attacherService.attachAll();
   }

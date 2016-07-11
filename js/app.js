@@ -12,7 +12,12 @@
     $('#submit').on('click', function(e) {
       e.preventDefault();
       console.log('submit clicked');
-    })
+    });
+
+    var errorEvent = jQuery.Event('error');
+
+
+    $('#error').click($('body').trigger(errorEvent));
   })
 
 }));
