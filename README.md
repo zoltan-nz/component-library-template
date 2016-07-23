@@ -41,3 +41,15 @@ Create Stage model:
 - getType
 
 Create an ErrorStage, which is inherited Stage, but type is 'ERROR'
+
+# Using Broccoli
+
+1. Add ember-cli to the project
+2. Use `ember s` for running the development server
+3. Add `broccoli-inject-livereload` package to Brocfile.js.
+4. Use the ember-cli prefered livereload middleware port.
+
+
+**Important packages:**
+* Funel
+* Livereload: https://github.com/adambullmer/broccoli-livereload-middleware
