@@ -23,7 +23,7 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
-  "include": ["./src"],
+  "include": ["./src", "./vendor"],
   "exclude": [
     "node_modules",
     "@types",

@@ -1,3 +1,4 @@
 export default interface TrackData {
-  pageName: string;
+  number1: number;
+  number2: number;
 }

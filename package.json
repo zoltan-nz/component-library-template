@@ -4,7 +4,7 @@
   "description": "Little marketing playground",
   "main": "dist/commonjs/analytics.js",
   "module": "dist/esm/analytics.js",
-  "browser": "dist/umd/analytics.js",
+  "browser": "dist/umd/main.js",
   "types": "dist/commonjs/analytics.d.ts",
   "files": [
     "./dist"
@@ -18,7 +18,8 @@
     "build:common": "run-p clean lint && tsc",
     "build:esm": "tsc --module esnext --target es2015 --outDir ./dist/esm",
     "build:umd": "rollup -c rollup.config.ts",
-    "build:all": "run-s build:common build:esm build:umd"
+    "build:all": "run-s build:common build:esm build:umd",
+    "serve": "serve ."
   },
   "author": "Zoltan",
   "license": "MIT",
@@ -36,6 +37,7 @@
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.17.2",
+    "serve": "^10.0.2",
     "ts-jest": "^23.10.4",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
