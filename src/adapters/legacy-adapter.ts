@@ -1,16 +1,22 @@
-import TrackData from '../models/track-data';
+import PageTrack from '../models/track';
+import Track from '../models/track';
 import BaseAdapter from './base-adapter';
 
 export default class LegacyAdapter extends BaseAdapter {
-  private tracker: LegacyCalculator;
+  private tracker: LegacyTracker;
 
   constructor() {
     super();
-    this.tracker = new LegacyCalculator();
+    this.tracker = new LegacyTracker();
+
+    this.tracker.clientId = "CLIENT_ID";
+    this.tracker.server = "http://localhost/tracker/";
   }
 
-  public track(trackData: TrackData): void {
-    // tslint:disable-next-line:no-console
-    console.log(this.tracker.summerizer(trackData.number1, trackData.number2));
+  public trackPageView(pageTrack: PageTrack): void {
+    const { pageName = "not specified" } = pageTrack;
+
+    this.tracker.pageName = pageName;
+    this.tracker.trackPage();
   }
 }
