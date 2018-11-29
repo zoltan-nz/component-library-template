@@ -1,3 +1,3 @@
-export default interface PageTrack {
+export default interface Track {
   pageName: string;
 }

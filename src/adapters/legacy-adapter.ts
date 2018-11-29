@@ -1,4 +1,3 @@
-import PageTrack from '../models/track';
 import Track from '../models/track';
 import BaseAdapter from './base-adapter';
 
@@ -13,7 +12,7 @@ export default class LegacyAdapter extends BaseAdapter {
     this.tracker.server = "http://localhost/tracker/";
   }
 
-  public trackPageView(pageTrack: PageTrack): void {
+  public track(pageTrack: Track): void {
     const { pageName = "not specified" } = pageTrack;
 
     this.tracker.pageName = pageName;
