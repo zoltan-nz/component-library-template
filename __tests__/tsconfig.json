@@ -1,6 +1,6 @@
 {
   "extends": "../tsconfig",
-  "references": [{ "path": ".."}],
+  "references": [{ "path": ".." }],
   "compilerOptions": {
     "removeComments": false
   }

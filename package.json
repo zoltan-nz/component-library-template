@@ -11,38 +11,42 @@
   ],
   "scripts": {
     "clean": "del ./dist ./.cache ./coverage ./.rpt2_cache",
-    "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json,md}'",
+    "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json,md,html}'",
     "tslint": "tslint --project ./tsconfig.json --format codeFrame --force --fix",
-    "lint": "run-s tslint prettier",
-    "build": "run-s build:common",
-    "build:common": "run-p clean lint && tsc",
+    "tslint:test": "tslint --project __tests__ --format stylish --force --fix",
+    "lint": "run-s tslint:test tslint prettier",
+    "build": "run-p clean lint && tsc",
     "build:esm": "tsc --module esnext --target es2015 --outDir ./dist/esm",
+    "build:amd": "tsc --module amd --outDir ./dist/amd",
     "build:umd": "rollup -c rollup.config.ts",
-    "build:all": "run-s build:common build:esm build:umd",
-    "serve": "serve ."
+    "build:all": "run-s build build:esm build:amd build:umd",
+    "serve": "serve .",
+    "pretest": "run-s lint",
+    "test": "jest --detectOpenHandles --colors",
+    "test:watch": "npm run test -- --watchAll"
   },
   "author": "Zoltan",
   "license": "MIT",
   "repository": {},
   "devDependencies": {
-    "@types/jest": "^23.3.8",
-    "@types/node": "^10.12.1",
+    "@types/jest": "^24.0.9",
+    "@types/node": "^11.9.5",
     "del-cli": "^1.1.0",
-    "jest": "^23.6.0",
-    "npm-run-all": "^4.1.3",
-    "prettier": "^1.14.3",
-    "rollup": "^0.66.6",
-    "rollup-plugin-commonjs": "^9.2.0",
+    "jest": "^24.1.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.16.4",
+    "rollup": "^1.3.2",
+    "rollup-plugin-commonjs": "^9.2.1",
     "rollup-plugin-json": "^3.1.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-node-resolve": "^4.0.1",
     "rollup-plugin-sourcemaps": "^0.4.2",
-    "rollup-plugin-typescript2": "^0.17.2",
-    "serve": "^10.0.2",
-    "ts-jest": "^23.10.4",
-    "ts-node": "^7.0.1",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.15.0",
-    "typescript": "^3.1.4"
+    "rollup-plugin-typescript2": "^0.19.3",
+    "serve": "^10.1.2",
+    "ts-jest": "^24.0.0",
+    "ts-node": "^8.0.2",
+    "tslint": "^5.13.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.3333"
   },
   "dependencies": {
     "tslib": "^1.9.3"
@@ -53,6 +57,11 @@
     "printWidth": 120
   },
   "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "__tests__/tsconfig.json"
+      }
+    },
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -67,7 +76,7 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "verbose": true,
-    "testEnvironment": "node",
+    "testEnvironment": "jsdom",
     "automock": false,
     "notify": true,
     "collectCoverage": true

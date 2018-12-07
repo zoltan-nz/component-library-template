@@ -14,11 +14,7 @@
     "moduleResolution": "node",
     "rootDir": "./src",
     "baseUrl": "./src",
-    "typeRoots": [
-      "@types",
-      "node_modules/@types",
-      "./vendor/"
-    ],
+    "typeRoots": ["@types", "node_modules/@types", "./vendor/"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "inlineSourceMap": true,
