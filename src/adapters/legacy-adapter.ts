@@ -2,7 +2,7 @@ import Track from '../models/track';
 import BaseAdapter from './base-adapter';
 
 export default class LegacyAdapter extends BaseAdapter {
-  private tracker: LegacyTracker;
+  public tracker: LegacyTracker;
 
   constructor() {
     super();
