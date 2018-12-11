@@ -1,6 +1,7 @@
 import BaseAdapter from './adapters/base-adapter';
 import LogAdapter from './adapters/log-adapter';
-import Track from './models/track';
+import LinkTrack from './models/link-track';
+import PageTrack from './models/page-track';
 
 interface AnalyticsOptions {
   adapter: BaseAdapter;
@@ -13,7 +14,11 @@ export default class Analytics {
     Object.assign(this, options);
   }
 
-  public pageTrack(track: Track) {
-    this.adapter.track(track);
+  public trackPage(track: PageTrack) {
+    this.adapter.trackPage(track);
+  }
+
+  public trackLink(track: LinkTrack) {
+    this.adapter.trackLink(track);
   }
 }
