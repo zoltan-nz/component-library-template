@@ -52,6 +52,10 @@
     "tslib": "^1.9.3",
     "ts-jest": "^24.0.0"
   },
+  "engines": {
+    "node": ">=8",
+    "npm": ">=6"
+  },
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all",
