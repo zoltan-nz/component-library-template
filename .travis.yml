@@ -1,9 +1,13 @@
 dist: xenial
+language: node_js
 
 node_js:
   - "8"
   - "10"
   - "11"
+
+before_install:
+  - npm i -g npm
 
 matrix:
   fast_finish: true
