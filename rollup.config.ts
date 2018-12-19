@@ -14,8 +14,8 @@ const tsconfigOverride = {
 };
 
 export default {
-  input: './src/main.ts',
-  output: [{ file: pkg.browser, name: 'Analytics', format: 'umd', sourcemap: 'inline' }],
+  input: './src/index.ts',
+  output: [{ file: pkg.browser, name: 'MarketingPlayground', format: 'umd', sourcemap: 'inline' }],
   plugins: [
     json(),
     resolve({ browser: true }),

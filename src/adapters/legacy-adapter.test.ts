@@ -3,10 +3,12 @@ import LegacyAdapter from '../../src/adapters/legacy-adapter';
 
 // @ts-ignore
 import { LegacyTracker } from '../../vendor/legacy-tracker';
+import { DEFAULT_CLIENT_ID, DEFAULT_SERVER } from '../models/adapter-config';
 
 const legacyTrackerMock = jest
-  .fn<LegacyTracker, []>()
+  .fn()
   .mockImplementation(() => ({ version: '1', trackLink: jest.fn(), trackPage: jest.fn(), url: () => 'asdf' }));
+
 (global as any).LegacyTracker = mocked(legacyTrackerMock);
 
 describe('./adapters/legacy-adapter', () => {
@@ -14,11 +16,14 @@ describe('./adapters/legacy-adapter', () => {
 
   beforeEach(() => (adapter = new LegacyAdapter()));
 
-  it('creates an instance', () => {
-    expect.assertions(2);
+  it('creates an instance with default config', () => {
+    expect.assertions(4);
 
     expect(adapter).toBeDefined();
     expect(adapter.tracker).toHaveProperty('trackPage');
+
+    expect(adapter.tracker.server).toEqual(DEFAULT_SERVER);
+    expect(adapter.tracker.clientId).toEqual(DEFAULT_CLIENT_ID);
   });
 
   it('#trackPage', () => {

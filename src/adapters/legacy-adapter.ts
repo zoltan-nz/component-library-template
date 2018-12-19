@@ -1,16 +1,20 @@
+import AdapterConfig, { DEFAULT_CLIENT_ID, DEFAULT_SERVER } from '../models/adapter-config';
 import LinkTrack from '../models/link-track';
 import PageTrack from '../models/page-track';
 import BaseAdapter from './base-adapter';
 
+const defaultAdapterConfig = { clientId: DEFAULT_CLIENT_ID, server: DEFAULT_SERVER };
+
 export default class LegacyAdapter extends BaseAdapter {
   public tracker: LegacyTracker;
 
-  constructor() {
+  constructor(public adapterConfig: AdapterConfig = defaultAdapterConfig) {
     super();
+    const { clientId, server } = adapterConfig;
     this.tracker = new LegacyTracker();
 
-    this.tracker.clientId = 'CLIENT_ID';
-    this.tracker.server = 'http://localhost/tracker/';
+    this.tracker.clientId = clientId;
+    this.tracker.server = server;
   }
 
   public trackPage(pageTrack: PageTrack = { pageName: 'not specified' }): void {

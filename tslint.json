@@ -3,10 +3,8 @@
   "extends": ["tslint:latest", "tslint-config-prettier"],
   "jsRules": {},
   "rules": {
-    "interface-name": false
+    "interface-name": false,
+    "no-implicit-dependencies": [true, "dev"]
   },
-  "rulesDirectory": [],
-  "linterOptions": {
-    "exclude": ["./rollup.config.ts"]
-  }
+  "rulesDirectory": []
 }

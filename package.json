@@ -2,12 +2,17 @@
   "name": "marketing-playground",
   "version": "1.0.0",
   "description": "Little marketing playground",
-  "main": "dist/commonjs/analytics.js",
-  "module": "dist/esm/analytics.js",
-  "browser": "dist/umd/main.js",
-  "types": "dist/commonjs/analytics.d.ts",
+  "main": "dist/commonjs/index.js",
+  "module": "dist /esm/index.js",
+  "browser": "dist/umd/index.js",
+  "types": "dist/commonjs/index.d.ts",
+  "esnext": {
+    "main": "dist/esm/index.js",
+    "browser": "dist/umd/index.js"
+  },
   "files": [
-    "./dist"
+    "./dist",
+    "./vendor"
   ],
   "scripts": {
     "clean": "del ./dist ./.cache ./coverage ./.rpt2_cache",
@@ -22,35 +27,41 @@
     "build:umd": "rollup -c rollup.config.ts",
     "build:all": "run-s build build:esm build:amd build:umd",
     "serve": "serve .",
-    "pretest": "run-s lint",
     "test": "npm run lint:ci && jest --detectOpenHandles --colors",
-    "test:watch": "npm run test -- --watchAll"
+    "test:watch": "npm run test -- --watchAll",
+    "test:acceptance:legacy-app:run-serve": "serve .",
+    "test:acceptance:legacy-app:run-test": "",
+    "test:acceptance:ember-app:run-test": "cd acceptance-tests/sample-applications/ember-app && ember test"
   },
   "author": "Zoltan",
   "license": "MIT",
   "repository": {},
   "devDependencies": {
-    "@types/jest": "^24.0.9",
-    "@types/node": "^11.10.4",
+    "@types/jest": "^23.3.14",
+    "@types/node": "^11.11.0",
+    "@types/rollup-plugin-commonjs": "^9.2.0",
+    "@types/rollup-plugin-json": "^3.0.1",
+    "@types/rollup-plugin-node-resolve": "^4.0.0",
+    "@types/rollup-plugin-sourcemaps": "^0.4.0",
     "del-cli": "^1.1.0",
-    "jest": "^24.1.0",
+    "jest": "^23.6.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.16.4",
-    "rollup": "^1.4.1",
+    "rollup": "^1.6.0",
     "rollup-plugin-commonjs": "^9.2.1",
     "rollup-plugin-json": "^3.1.0",
     "rollup-plugin-node-resolve": "^4.0.1",
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.19.3",
     "serve": "^10.1.2",
-    "ts-node": "^8.0.2",
+    "ts-jest": "^23.10.5",
+    "ts-node": "^8.0.3",
     "tslint": "^5.13.1",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.3.3333"
   },
   "dependencies": {
-    "tslib": "^1.9.3",
-    "ts-jest": "^24.0.0"
+    "tslib": "^1.9.3"
   },
   "engines": {
     "node": ">=8",

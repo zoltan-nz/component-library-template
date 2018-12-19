@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "module": "commonjs",
-    "lib": ["es2018", "dom"],
+    "lib": ["esnext", "dom"],
     "declaration": true,
     "outDir": "dist/commonjs",
     "composite": true,
@@ -12,8 +12,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "moduleResolution": "node",
-    "rootDir": "./src",
-    "baseUrl": "./src",
+    "rootDir": "src",
+    "baseUrl": "src",
     "typeRoots": ["@types", "node_modules/@types", "./vendor/"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

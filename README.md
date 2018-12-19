@@ -1,5 +1,7 @@
 # Marketing Playground
 
+[![Build Status](https://travis-ci.com/zoltan-nz/marketing-playground.svg?branch=master)](https://travis-ci.com/zoltan-nz/marketing-playground)
+
 ## Todo
 
 - [x] Setup TypeScript
