@@ -30,23 +30,29 @@
     "test": "npm run lint:ci && jest --detectOpenHandles --colors",
     "test:watch": "npm run test -- --watchAll",
     "test:acceptance:legacy-app:run-serve": "serve .",
-    "test:acceptance:legacy-app:run-test": "",
     "test:acceptance:ember-app:run-test": "cd acceptance-tests/sample-applications/ember-app && ember test"
   },
   "author": "Zoltan",
   "license": "MIT",
   "repository": {},
   "devDependencies": {
+    "@types/expect-puppeteer": "^3.3.1",
     "@types/jest": "^24.0.11",
+    "@types/jest-environment-puppeteer": "^4.0.0",
     "@types/node": "^11.11.0",
+    "@types/puppeteer": "^1.12.2",
     "@types/rollup-plugin-commonjs": "^9.2.0",
     "@types/rollup-plugin-json": "^3.0.1",
     "@types/rollup-plugin-node-resolve": "^4.0.0",
     "@types/rollup-plugin-sourcemaps": "^0.4.0",
     "del-cli": "^1.1.0",
+    "expect-puppeteer": "^4.0.0",
     "jest": "^24.3.1",
+    "jest-environment-puppeteer": "^4.0.0",
+    "jest-puppeteer": "^4.0.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.16.4",
+    "puppeteer": "^1.13.0",
     "rollup": "^1.6.0",
     "rollup-plugin-commonjs": "^9.2.1",
     "rollup-plugin-json": "^3.1.0",
@@ -73,6 +79,7 @@
     "printWidth": 120
   },
   "jest": {
+    "preset": "jest-puppeteer",
     "globals": {
       "ts-jest": {
         "tsConfig": "tsconfig.test.json"
@@ -92,7 +99,6 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "verbose": true,
-    "testEnvironment": "jsdom",
     "automock": false,
     "notify": true,
     "collectCoverage": true

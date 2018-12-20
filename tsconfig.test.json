@@ -2,5 +2,7 @@
   "extends": "./tsconfig",
   "compilerOptions": {
     "removeComments": false
-  }
+  },
+  "include": ["**/*.test.ts"],
+  "exclude": []
 }
