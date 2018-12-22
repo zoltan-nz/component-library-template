@@ -2,7 +2,7 @@ import Analytics from '../src/analytics';
 
 jest.mock('../src/adapters/log-adapter');
 
-describe('./analytics', () => {
+describe('Analytics class as the main entry point for this library', () => {
   let analytics: Analytics;
 
   beforeEach(() => (analytics = new Analytics()));

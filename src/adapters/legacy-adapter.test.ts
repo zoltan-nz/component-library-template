@@ -11,7 +11,7 @@ const legacyTrackerMock = jest
 
 (global as any).LegacyTracker = mocked(legacyTrackerMock);
 
-describe('./adapters/legacy-adapter', () => {
+describe('LegacyAdapter which attach old school global Tracker to our library', () => {
   let adapter: LegacyAdapter;
 
   beforeEach(() => (adapter = new LegacyAdapter()));

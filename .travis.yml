@@ -14,3 +14,7 @@ matrix:
 
 cache:
   npm: true
+
+script:
+  - npm run build:all
+  - npm run test
