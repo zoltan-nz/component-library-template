@@ -16,6 +16,6 @@ function LegacyTracker() {
 
   this.trackLink = () => {
     // tslint:disable-next-line:no-console
-    fetch(`${this.url}&linkName${this.linkName}`).finally(response => console.log(response));
+    fetch(`${this.url}&linkName=${this.linkName}`).finally(response => console.log(response));
   };
 }
