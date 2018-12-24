@@ -30,7 +30,7 @@
     "test": "npm run lint:ci && jest --detectOpenHandles --colors",
     "test:watch": "npm run test -- --watchAll",
     "test:acceptance:legacy:serve": "serve .",
-    "test:acceptance:ember:test": "cd acceptance-tests/sample-applications/ember-app && ember test"
+    "test:acceptance:ember:test": "cd acceptance-tests/dummy-apps/ember-app && ember test"
   },
   "author": "Zoltan",
   "license": "MIT",
