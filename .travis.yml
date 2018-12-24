@@ -17,4 +17,5 @@ cache:
 
 script:
   - npm run build:all
+  - npm run test:acceptance:react:setup
   - npm run test

@@ -1,6 +1,6 @@
 jest.setTimeout(100000);
 
-describe('static website acceptance test', () => {
+describe('react app acceptance test', () => {
   it('should navigate between routes and send ajax request to the marketing server', async () => {
     // page.on('console', msg => console.log(msg));
 
@@ -21,32 +21,26 @@ describe('static website acceptance test', () => {
       }
     });
 
-    await page.goto('http://localhost:5000/acceptance-tests/dummy-apps/static-app/');
+    await page.goto('http://localhost:3000', { timeout: 20000 });
 
     await expect(page).toMatch('Home Page');
     await page.waitForSelector('[data-test-header]', { visible: true });
 
-    // The expected ajax call has been called?
-    expect(ajaxUrls.length).toEqual(1);
-    expect(ajaxUrls[ajaxUrls.length - 1]).toEqual('http://localhost:5001/track?clientId=12345&pageName=home-page');
-
     await expect(page).toMatchElement('[data-test-header]', { text: 'Home Page' });
-    await Promise.all([page.waitForNavigation(), expect(page).toClick('[data-test-link]')]);
+    await Promise.all([page.waitForNavigation(), expect(page).toClick('[data-test-link-about]')]);
 
-    expect(ajaxUrls.length).toEqual(3);
-    expect(ajaxUrls[ajaxUrls.length - 2]).toEqual('http://localhost:5001/track?clientId=12345&linkName=about%20page');
-    expect(ajaxUrls[ajaxUrls.length - 1]).toEqual('http://localhost:5001/track?clientId=12345&pageName=about-page');
+    expect(ajaxUrls.length).toEqual(1);
+    expect(ajaxUrls[ajaxUrls.length - 1]).toEqual('http://localhost:5001/track?clientId=12345&linkName=about');
 
     await page.waitForSelector('[data-test-header]', { visible: true });
     await expect(page).toMatchElement('[data-test-header', { text: 'About Page' });
 
-    await Promise.all([page.waitForNavigation(), expect(page).toClick('[data-test-link]')]);
+    await Promise.all([page.waitForNavigation(), expect(page).toClick('[data-test-link-home]')]);
 
     await page.waitForSelector('[data-test-header]', { visible: true });
     await expect(page).toMatchElement('[data-test-header]', { text: 'Home Page' });
 
-    expect(ajaxUrls.length).toEqual(5);
-    expect(ajaxUrls[ajaxUrls.length - 2]).toEqual('http://localhost:5001/track?clientId=12345&linkName=home%20page');
-    expect(ajaxUrls[ajaxUrls.length - 1]).toEqual('http://localhost:5001/track?clientId=12345&pageName=home-page');
+    expect(ajaxUrls.length).toEqual(2);
+    expect(ajaxUrls[ajaxUrls.length - 1]).toEqual('http://localhost:5001/track?clientId=12345&linkName=home');
   });
 });

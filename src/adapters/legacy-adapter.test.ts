@@ -1,4 +1,4 @@
-import { mocked } from 'ts-jest';
+import { mocked } from 'ts-jest/utils';
 import LegacyAdapter from '../../src/adapters/legacy-adapter';
 
 // @ts-ignore
