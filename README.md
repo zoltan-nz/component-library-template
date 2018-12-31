@@ -7,8 +7,11 @@
 - [x] Setup TypeScript
 - [x] Setup Prettier
 - [x] Setup build tools: `tsc`, `rollup`
-- [ ] Setup test runners: `TestCafe`, `Jest`
-- [x] Add Vendor libraries.
+- [x] Setup acceptance test: `Pupetter`, `Jest`
+- [x] Add Vendor libraries
+- [x] Acceptance test for a dummy React App
+- [x] Acceptance test for a static "legacy" page
+- [ ] Acceptance test for a dummy Ember App
 
 ## Using legacy vendor file in TypeScript
 
@@ -19,7 +22,7 @@
 
 ```typescript
 const legacyTrackerMock = jest
-  .fn<LegacyTracker, []>()
+  .fn()
   .mockImplementation(() => ({ version: '1', trackLink: jest.fn(), trackPage: jest.fn(), url: () => 'asdf' }));
 (global as any).LegacyTracker = mocked(legacyTrackerMock);
 ```

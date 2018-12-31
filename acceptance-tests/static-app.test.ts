@@ -23,8 +23,8 @@ describe('static website acceptance test', () => {
 
     await page.goto('http://localhost:5000/acceptance-tests/dummy-apps/static-app/');
 
-    await expect(page).toMatch('Home Page');
     await page.waitForSelector('[data-test-header]', { visible: true });
+    await expect(page).toMatch('Home Page');
 
     // The expected ajax call has been called?
     expect(ajaxUrls.length).toEqual(1);
