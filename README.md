@@ -7,7 +7,7 @@
 - [x] Setup TypeScript
 - [x] Setup Prettier
 - [x] Setup build tools: `tsc`, `rollup`
-- [x] Setup acceptance test: `Pupetter`, `Jest`
+- [x] Setup acceptance test: `Puppeteer`, `Jest`
 - [x] Add Vendor libraries
 - [x] Acceptance test for a dummy React App
 - [x] Acceptance test for a static "legacy" page
