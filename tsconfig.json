@@ -22,7 +22,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "incremental": true
   },
   "include": ["./src", "./vendor"],
   "exclude": [

@@ -5,17 +5,28 @@ node_js:
   - "8"
   - "10"
   - "11"
+  - "12"
 
-before_install:
-  - npm i -g npm
+install:
+  - yarn
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
 
 matrix:
   fast_finish: true
 
 cache:
   npm: true
+  yarn: true
+  directories:
+    - node_modules
 
 script:
-  - npm run build:all
-  - npm run test:acceptance:react:setup
-  - npm run test
+  - yarn build:all
+  - yarn test:acceptance:react:setup
+  - yarn test
