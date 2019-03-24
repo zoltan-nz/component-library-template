@@ -7,9 +7,6 @@ node_js:
   - "11"
   - "12"
 
-allow_failures:
-  - node_js: 12
-
 install:
   - yarn
 
@@ -20,14 +17,16 @@ addons:
     packages:
       - google-chrome-stable
 
-matrix:
-  fast_finish: true
-
 cache:
   npm: true
   yarn: true
   directories:
     - node_modules
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - node_js: "12"
 
 script:
   - yarn build:all
