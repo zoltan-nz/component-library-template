@@ -7,16 +7,16 @@ function LegacyTracker() {
   this.pageName = null;
   this.linkName = null;
 
-  this.url = function() {
+  this.url = function () {
     return `${this.server}/track?clientId=${this.clientId}`;
   };
 
-  this.trackPage = function() {
+  this.trackPage = function () {
     // tslint:disable-next-line:no-console
     fetch(`${this.url()}&pageName=${this.pageName}`).finally(response => console.log(response));
   };
 
-  this.trackLink = function() {
+  this.trackLink = function () {
     // tslint:disable-next-line:no-console
     fetch(`${this.url()}&linkName=${this.linkName}`).finally(response => console.log(response));
   };
