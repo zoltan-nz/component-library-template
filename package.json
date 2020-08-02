@@ -72,8 +72,8 @@
     "tslib": "^2.1.0"
   },
   "engines": {
-    "node": ">=8",
-    "npm": ">=6"
+    "node": ">=14",
+    "yarn": ">=1.22.10"
   },
   "prettier": {
     "singleQuote": true,

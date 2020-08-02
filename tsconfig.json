@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2015",
+    "target": "es5",
     "module": "commonjs",
-    "lib": ["esnext", "dom"],
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "allowJs": true,
+    "skipLibCheck": true,
     "declaration": true,
     "outDir": "dist/commonjs",
     "composite": true,
@@ -10,7 +12,10 @@
     "importHelpers": true,
     "strict": true,
     "noUnusedLocals": true,
+    "noImplicitReturns": true,
     "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "downlevelIteration": true,
     "moduleResolution": "node",
     "rootDir": "src",
     "baseUrl": "src",
@@ -25,7 +30,7 @@
     "resolveJsonModule": true,
     "incremental": true
   },
-  "include": ["./src", "./vendor"],
+  "include": ["src"],
   "exclude": [
     "node_modules",
     "@types",
