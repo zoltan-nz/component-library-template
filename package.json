@@ -2,73 +2,52 @@
   "name": "component-library-template",
   "version": "1.0.0",
   "description": "Component Library Template",
-  "main": "dist/commonjs/index.js",
-  "module": "dist/esm/index.js",
-  "browser": "dist/umd/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "esnext": {
-    "main": "dist/esm/index.js",
-    "browser": "dist/umd/index.js"
+    "main": "dist/index.js"
   },
-  "types": "dist/commonjs/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "src"
   ],
   "scripts": {
-    "clean": "tsc -b . --clean && del ./dist ./.cache ./coverage ./.rpt2_cache",
-    "format": "prettier --list-different --write '**/*.{ts,tsx,js,jsx,json,md,html,scss,css}'",
-    "tslint": "tslint --project ./tsconfig.json --format codeFrame --force --fix",
-    "tslint:test": "tslint --project ./tsconfig.test.json --format codeFrame --force --fix",
-    "lint": "run-s tslint:test tslint format",
-    "lint:ci": "tslint --project ./tsconfig.json --format codeFrame && tslint --project ./tsconfig.test.json --format codeFrame",
-    "build": "run-p clean lint && tsc",
-    "build:esm": "tsc --module esnext --target es2015 --outDir ./dist/esm",
-    "build:amd": "tsc --module amd --outDir ./dist/amd",
-    "build:umd": "rollup -c rollup.config.ts",
-    "build:all": "run-s build build:esm build:amd build:umd",
-    "serve": "serve .",
-    "test": "yarn lint:ci && jest --detectLeaks --detectOpenHandles --forceExit --colors",
+    "clean": "del ./dist ./coverage ./.rollup.cache",
+    "start": "run-p build:watch",
+    "format:check": "prettier --list-different '**/*.{ts,tsx,js,jsx,json,md,html,scss,css}'",
+    "format": "yarn format:check --write",
+    "build": "run-p clean && rollup -c ./rollup.config.ts",
+    "build:watch": "rollup -c ./rollup.config.ts --watch",
+    "test": "jest --colors",
     "test:watch": "yarn test -- --watchAll",
     "test:acceptance:static:serve": "serve .",
     "test:acceptance:react:setup": "cd acceptance-tests/dummy-apps/react-app && yarn",
-    "test:acceptance:react:serve": "cd acceptance-tests/dummy-apps/react-app && BROWSER=none yarn start",
-    "test:acceptance:ember:test": "cd acceptance-tests/dummy-apps/ember-app && ember test"
+    "test:acceptance:react:serve": "cd acceptance-tests/dummy-apps/react-app && BROWSER=none yarn start"
   },
   "author": "Zoltan",
   "license": "MIT",
-  "repository": {},
+  "repository": "https://github.com/zoltan-nz/component-library-template",
   "devDependencies": {
-    "@types/expect-puppeteer": "^4.4.5",
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "@rollup/plugin-typescript": "^8.2.0",
     "@types/jest": "^26.0.20",
-    "@types/jest-environment-puppeteer": "^4.4.1",
-    "@types/node": "^14.14.32",
-    "@types/puppeteer": "^5.4.3",
-    "@types/rollup-plugin-commonjs": "^9.3.1",
-    "@types/rollup-plugin-json": "^3.0.2",
-    "@types/rollup-plugin-node-resolve": "^4.1.0",
-    "@types/rollup-plugin-sourcemaps": "^0.4.2",
+    "@types/node": "^14.14.33",
     "del-cli": "^3.0.1",
-    "expect-puppeteer": "^4.4.0",
     "jest": "^26.6.3",
-    "jest-environment-puppeteer": "^4.4.0",
-    "jest-puppeteer": "^4.4.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
-    "puppeteer": "^8.0.0",
-    "rollup": "^2.41.0",
-    "rollup-plugin-commonjs": "^9.3.4",
-    "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup": "^2.41.1",
     "rollup-plugin-sourcemaps": "^0.6.3",
-    "rollup-plugin-typescript2": "^0.30.0",
     "serve": "^11.3.2",
     "ts-jest": "^26.5.3",
     "ts-node": "^9.1.1",
-    "tslint": "^5.20.1",
-    "tslint-config-prettier": "^1.18.0",
     "typescript": "^4.2.3"
   },
   "dependencies": {
+    "tslib": "^2.1.0"
+  },
+  "peerDependencies": {
     "tslib": "^2.1.0"
   },
   "engines": {
@@ -82,10 +61,9 @@
     "arrowParens": "avoid"
   },
   "jest": {
-    "preset": "jest-puppeteer",
     "globals": {
       "ts-jest": {
-        "tsConfig": "tsconfig.test.json"
+        "tsconfig": "tsconfig.test.json"
       }
     },
     "moduleFileExtensions": [

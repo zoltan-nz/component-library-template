@@ -6,7 +6,7 @@
 
 - [ ] Setup TypeScript
 - [ ] Setup Prettier
-- [ ] Setup build tools: `tsc`, `rollup`
+- [ ] Setup build tools: `rollup`
 - [ ] Setup acceptance test: `Playwright`, `Jest`
 - [ ] Acceptance test for a dummy React App
 - [ ] Add Storybook

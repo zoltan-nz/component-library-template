@@ -1,29 +1,13 @@
-import commonjs from 'rollup-plugin-commonjs';
-import json from 'rollup-plugin-json';
-import resolve from 'rollup-plugin-node-resolve';
+import resolve from '@rollup/plugin-node-resolve';
 import sourceMaps from 'rollup-plugin-sourcemaps';
-import typescript from 'rollup-plugin-typescript2';
-
-import pkg from './package.json';
-
-const tsconfigOverride = {
-  compilerOptions: {
-    module: 'es2015',
-    sourceMap: true,
-  },
-};
+import typescript from '@rollup/plugin-typescript';
 
 export default {
   input: './src/index.ts',
-  output: [{ file: pkg.browser, name: 'MarketingPlayground', format: 'umd', sourcemap: 'inline' }],
+  output: [{ dir: './dist', sourcemap: 'inline' }],
   plugins: [
-    json(),
-    resolve({ browser: true }),
-    typescript({
-      tsconfig: './tsconfig.json',
-      tsconfigOverride,
-    }),
-    commonjs(),
+    resolve(),
+    typescript(),
     sourceMaps(),
   ],
 };

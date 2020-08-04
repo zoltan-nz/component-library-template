@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "target": "ES2015",
+    "module": "esnext",
     "lib": ["esnext", "dom", "dom.iterable"],
     "allowJs": true,
     "skipLibCheck": true,
     "declaration": true,
-    "outDir": "dist/commonjs",
+    "outDir": "./dist",
+    "tsBuildInfoFile": "./dist/.tsbuildinfo",
     "composite": true,
     "removeComments": true,
     "importHelpers": true,

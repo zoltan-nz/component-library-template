@@ -6,3 +6,4 @@ tags
 .rpt2_cache
 package-lock.json
 coverage
+.rollup.cache

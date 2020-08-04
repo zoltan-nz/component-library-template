@@ -29,6 +29,5 @@ matrix:
     - node_js: "12"
 
 script:
-  - yarn build:all
-  - yarn test:acceptance:react:setup
+  - yarn build
   - yarn test
